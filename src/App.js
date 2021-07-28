@@ -1,20 +1,27 @@
-import styled from 'styled-components/macro';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import jumboData from './fixtures/jumbo.json';
-import JumbotronContainer from './containers/jumbotron';
-import FooterContainer from './containers/footer';
-import { Accordion } from './components';
-import FaqsContainer from './containers/faqs';
+import * as ROUTES from './constants/routes';
+import { Home, Browse, Signin, Signup } from './pages';
 
 console.log(jumboData);
 export default function App() {
   // const Source = styled.src``;
 
   return (
-    <>
-      <JumbotronContainer />
-      <FaqsContainer />
-      <FooterContainer />
-    </>
+    <Router>
+      <Route exact path={ROUTES.HOME}>
+        <Home />
+      </Route>
+      <Route exact path={ROUTES.SIGN_UP}>
+        <Signup />
+      </Route>
+      <Route exact path={ROUTES.SIGN_IN}>
+        <Signin />
+      </Route>
+      <Route exact path={ROUTES.BROWSE}>
+        <Browse />
+      </Route>
+    </Router>
     //
   );
 }
